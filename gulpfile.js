@@ -1,24 +1,24 @@
 var gulp = require('gulp'),
 
-    //コンパイル中にエラーが起きたらそれを感知、desktopにnotificationを飛ばす
+    //catch error and notify it.
     plumber  = require('gulp-plumber'),
     notify   = require('gulp-notify'),
 
-    // auto reaload
+    // auto reaload when file changed
     browserSync = require('browser-sync'),
 
-    // 現在のディレクトリを参照できる
+    // refer current dir
     path     = require('path'),
 
-    // sass, compassをcssにコンパイル、autoprefixerでベンダープレフィックス対応
-
+    //use sass syntax and autoprefixer
     sass         = require('gulp-sass'),
     autoprefixer = require("gulp-autoprefixer"),
 
-    // ejsを使用
+    // ejs
     ejs = require('gulp-ejs'),
     fs  = require('fs'),
 
+    // defined common pathes
     frontends_path = 'frontends/',
     assets_path    = 'assets/';
 
@@ -44,7 +44,7 @@ gulp.task('compass',function(){
 
 gulp.task('ejs', function() {
   gulp.src(
-    ['./frontends/ejs/*.ejs', '!./frontends/ejs/_*.ejs']
+    [frontends_path + 'ejs/*.ejs', '!./frontends/ejs/_*.ejs']
   )
   .pipe(plumber({
     errorHandler: notify.onError("Error: <%= error.message %>")
