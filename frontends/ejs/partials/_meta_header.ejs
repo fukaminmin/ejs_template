@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include _ogp %>
+  <link rel="stylesheet" href="../assets/stylesheets/libs/normalize.css">
+  <link rel="stylesheet" href="../assets/stylesheets/app.css">
+  <% for (var i = 0; i < styles.length; i++) { %>
+  	<link rel="stylesheet" href="./assets/stylesheets/<%= styles[i] %>.css">
+  <% } %>
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <% for (var i = 0; i < javascripts.length; i++) { %>
+  	<script src="./assets/javascripts/<%= javascripts[i] %>.js"></script>
+  <% } %>
+</head>
+<body>
+<div id="content">
